@@ -10,7 +10,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     
     (r'^agenda/', include("session.urls")),
-    (r'^user/1', direct_to_template, {'template': 'profile.html'}),
+    (r'^register/?$', direct_to_template, {'template': 'register.html'}),
     
     url(r'^', include('cms.urls')),
 )

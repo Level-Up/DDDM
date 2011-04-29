@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load cms_tags cache menu_tags %}
+{% load cms_tags cache menu_tags lazysignup_tags %}
 
 {% block header %}{% endblock %}
 
@@ -15,7 +15,7 @@
     </ul>
 </nav>
 
-{% if not user.is_authenticated %}
+{% if not user.is_authenticated or user|is_lazy_user %}
 <form action="/login/" method="post">
     <div class="ui-body ui-body-b">
         <p><input type="text" name="username" placeholder="email" value=""  /></p>
@@ -24,7 +24,9 @@
             <button type="submit" data-theme="a">Login</button>
         </div>
     </div>
-</form> 
+</form>
+
+<p><a href="/register/" data-role="button" data-theme="b">Create an account</a></p>
 {% endif %}
 
 {% endblock %}
