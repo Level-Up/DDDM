@@ -42,7 +42,7 @@ class Session(models.Model):
         ordering = ["slot", "room"]
     
     def get_absolute_url(self):
-        return '/session/%s' % self.slug
+        return '/agenda/%s' % self.slug
 
     def __unicode__(self):
         return self.title
