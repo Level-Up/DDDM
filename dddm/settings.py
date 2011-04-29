@@ -98,6 +98,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 
 CMS_TEMPLATES = (
     ('index.html', 'Homepage'),
+    ('agenda.html', 'Agenda'),
 )
 
 ROOT_URLCONF = 'dddm.urls'
@@ -124,6 +125,7 @@ INSTALLED_APPS = (
     'cms.plugins.text',
     'cms.plugins.picture',
     'cms.plugins.googlemap',
+    'dddm.session',
 )
 
 CMS_SEO_FIELDS = True
