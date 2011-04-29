@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load cms_tags cache menu_tags get_favs lazysignup_tags %}
+
+{% block header %}
+    <div data-role="header">
+        <h1>{% page_attribute page_title %}</h1>
+        <a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+    </div><!-- END: header -->
+{% endblock %}
+
+{% block content %}
+
+<nav id="fav_lists">
+    <ul data-role="listview" data-filter="true">
+        {% get_favs for user as favs %}
+        {% for slot in favs %}
+            <li data-role="list-divider">{{ slot.start }} - {{ slot.end }}</li>
+            
+            {% for session in slot.sessions %}
+                <li>
+                {% if session.is_break %}
+                    <h3>{{ session.title }}</h3>
+                {% else %}
+                    <a href="{{ session.url }}">
+                        <h3>{{ session.speaker }}</h3>
+                        <p><b>{{ session.title }}</b></p>
+                        <p>{{ session.excerpt }}</p>
+                        <p class="ui-li-count">{{ session.room|upper }}</p>
+                    </a>
+                    <a href="/fav/del/{{ session.id }}" data-rel="dialog" data-icon="delete" data-transition="slideup">Delete</a>
+                {% endif %}
+                </li>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</nav>
+
+<script>
+$("div").live('pageshow',function(event, ui){
+    if($("#fav_lists").length > 0) {
+        ui.prevPage.remove();
+    }
+});
+</script>
+
+{% endblock %}

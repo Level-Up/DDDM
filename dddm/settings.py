@@ -104,6 +104,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 CMS_TEMPLATES = (
     ('index.html', 'Homepage'),
     ('agenda.html', 'Agenda'),
+    ('favs.html', 'Favourites'),
     ('register.html', 'Register'),
 )
 
@@ -136,6 +137,7 @@ INSTALLED_APPS = (
     'cms.plugins.googlemap',
     'dddm.account',
     'dddm.session',
+    'dddm.fav',
 )
 
 CMS_SEO_FIELDS = True

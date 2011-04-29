@@ -52,7 +52,7 @@
     <div data-role="navbar">
         <ul>
             <li><a href="{{ session.speaker.profile.get_absolute_url }}" data-transition="flip" class="speaker" data-icon="custom">Speaker</a></li>
-            <li><a href="/fav/add/{{ session.pk }}" data-transition="slideup" class="fav" data-icon="custom">Fav</a></li>
+            <li><a href="/fav/add/{{ session.pk }}" data-transition="slideup" data-rel="dialog" class="fav" data-icon="custom">Fav</a></li>
         </ul>
     </div>
 </div>

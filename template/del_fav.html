@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load lazysignup_tags %}
+
+{% block header %}
+    <div data-role="header">
+        <h1>Favourite Removed</h1>
+    </div><!-- END: header -->
+{% endblock %}
+
+{% block content %}
+
+<h1>Bye Bye.</h1>
+<p>You have removed <b><a href="{{ session.get_absolute_url }}" data-transition="slidedown">{{ session.title }}</a></b> 
+by <a href="{{ session.speaker.profile.get_absolute_url }}" data-transition="slidedown">
+{{ session.speaker.first_name }} {{ session.speaker.last_name }}</a> from your list of favourites.</p>
+
+{% if not user.is_authenticated or user|is_lazy_user %}
+<div class="ui-body ui-body-e">
+    <p>You're not logged in, if your session expires you'll lose your favourites.</p>
+    
+    <div data-role="controlgroup" data-type="horizontal">
+        <a href="/" data-transition="slidedown" data-role="button">Login</a>
+        <a href="/register/" data-transition="slidedown" data-role="button">Create an account</a>
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock %}
