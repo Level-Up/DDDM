@@ -1,3 +1,4 @@
+{% load cms_tags cache %}
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -17,11 +18,23 @@
     <script src="{{ MEDIA_URL }}js/Modernizr.HTML5.Shim.js"></script>
     
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/jquery.mobile-1.0a4.1.min.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/handheld.css" />
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.5.2.min.js"></script>
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.mobile-1.0a4.1.min.js"></script>
 
 </head>
 <body>
+    
+    <div data-role="page">
+        <div data-role="header">
+            <h1>{% page_attribute page_title %}</h1>
+        </div><!-- END: header -->
+        
+        <div data-role="content">	
+            {% block content %}{% endblock %}
+        </div><!-- END: content -->
+        
+    </div> <!-- END: page -->
 
     <script>
         var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; // Change UA-XXXXX-X to be your site's ID

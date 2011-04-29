@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load cms_tags cache menu_tags %}
+
+{% block content %}
+
+<h1 id="logo">
+    <a href="/">Developer Day Scotland</a>
+</h1>
+
+<nav>
+    <ul data-role="listview" data-inset="true">
+        {% show_menu 1 0 %}
+    </ul>
+</nav>
+
+{% endblock %}
