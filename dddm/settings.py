@@ -103,6 +103,8 @@ CMS_TEMPLATES = (
 
 ROOT_URLCONF = 'dddm.urls'
 
+AUTH_PROFILE_MODULE = 'account.UserProfile'
+
 TEMPLATE_DIRS = localsettings.TEMPLATE_DIRS
 
 INSTALLED_APPS = (
@@ -125,6 +127,7 @@ INSTALLED_APPS = (
     'cms.plugins.text',
     'cms.plugins.picture',
     'cms.plugins.googlemap',
+    'dddm.account',
     'dddm.session',
 )
 
