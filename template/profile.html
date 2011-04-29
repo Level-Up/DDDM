@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+
+{% block header %}
+    <div data-role="header">
+        <h1>Aaron Bassett</h1>
+    </div><!-- END: header -->
+{% endblock %}
+
+{% block content %}
+
+<ul data-role="listview" data-inset="true">
+    <li>
+        <a href="http://www.aaronbassett.com">
+        <img src="{{ user.profile.get_gravatar }}" alt="" />
+        <h3>Aaron Bassett</h3>
+        <p>Level Up</p>
+        </a>
+    </li>
+</ul>
+
+<div class="ui-body ui-body-b">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Quisque lacus libero, vestibulum sit amet tincidunt eu, lacinia in leo.</p>
+</div>
+
+<ul data-role="listview" data-inset="true">
+    <li>
+        <a href="http://twitter.com/">
+            <img src="{{ MEDIA_URL }}images/social/picons33.png" alt="" />
+            <h3>Twitter</h3>
+            <p>twitter.com/aaronbassett</p>
+        </a>
+    </li>
+    <li>
+        <a href="http://twitter.com/">
+            <img src="{{ MEDIA_URL }}images/social/picons36.png" alt="" />
+            <h3>Facebook</h3>
+            <p>twitter.com/aaronbassett</p>
+        </a>
+    </li>
+    <li>
+        <a href="http://twitter.com/">
+            <img src="{{ MEDIA_URL }}images/social/github.png" alt="" />
+            <h3>Github</h3>
+            <p>twitter.com/aaronbassett</p>
+        </a>
+    </li>
+    <li>
+        <a href="http://twitter.com/">
+            <img src="{{ MEDIA_URL }}images/social/picons31.png" alt="" />
+            <h3>Forrst</h3>
+            <p>twitter.com/aaronbassett</p>
+        </a>
+    </li>
+    <li>
+        <a href="http://twitter.com/">
+            <img src="{{ MEDIA_URL }}images/social/picons41.png" alt="" />
+            <h3>Linkedin</h3>
+            <p>twitter.com/aaronbassett</p>
+        </a>
+    </li>
+    <li>
+        <a href="http://twitter.com/">
+            <img src="{{ MEDIA_URL }}images/social/picons49.png" alt="" />
+            <h3>Delicious</h3>
+            <p>twitter.com/aaronbassett</p>
+        </a>
+    </li>
+</ul>
+
+<ul data-role="listview" data-inset="true">
+    <li data-role="list-divider">Favourite sessions.</li>
+    <li>
+        This user has not favourited any sessions yet :(
+    </li>
+</ul>
+
+
+
+{% endblock %}

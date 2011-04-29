@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+
+{% block header %}
+    <div data-role="header">
+        <h1>Create account</h1>
+    </div><!-- END: header -->
+{% endblock %}
+
+{% block content %}
+<h1 id="logo">
+    <a href="/">Developer Day Scotland</a>
+</h1>
+
+<form action="/account/create/" method="post">
+    <div class="ui-body ui-body-b">
+        <div data-role="fieldcontain">
+            <p><input type="email" name="email" placeholder="email (we use gravatar)" required value=""  /></p>
+            <p><input type="password" name="password" placeholder="password" required value=""  /></p>
+        </div>
+        
+        <div data-role="fieldcontain">
+            <p><input type="text" name="first_name" placeholder="first name" required value=""  /></p>
+            <p><input type="text" name="last_name" placeholder="surame" required value=""  /></p>
+        </div>
+        
+        <div data-role="fieldcontain">
+            <p><i>The rest are optional.</i></p>
+            <p><textarea name="bio" placeholder="bio"></textarea></p>
+            <p><input type="text" name="company" placeholder="company" value=""  /></p>
+            <p><input type="text" name="website" placeholder="website" value=""  /></p>
+            <p><input type="text" name="twitter" placeholder="twitter username" value=""  /></p>
+            <p><input type="text" name="facebook" placeholder="facebook url" value=""  /></p>
+            <p><input type="text" name="forrst" placeholder="forrst username" value=""  /></p>
+            <p><input type="text" name="linkedin" placeholder="linkedin url" value=""  /></p>
+            <p><input type="text" name="github" placeholder="github username" value=""  /></p>
+            <p><input type="text" name="delicious" placeholder="delicious username" value=""  /></p>
+        </div>
+        
+        
+        <div class="ui-block-b">
+            <button type="submit" data-theme="a">Register</button>
+        </div>
+    </div>
+</form> 
+{% endblock %}
