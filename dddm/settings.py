@@ -99,6 +99,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 CMS_TEMPLATES = (
     ('index.html', 'Homepage'),
     ('agenda.html', 'Agenda'),
+    ('register.html', 'Register'),
 )
 
 ROOT_URLCONF = 'dddm.urls'

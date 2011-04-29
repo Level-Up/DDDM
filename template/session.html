@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+
+{% block header %}
+    <div data-role="header">
+        <h1>Room {{ session.room|upper }} - {{ session.slot.start }} - {{ session.slot.end }}</h1>
+        <a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+    </div><!-- END: header -->
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ session.title }}</h1>
+<h3>by {{ session.speaker.first_name }} {{ session.speaker.last_name }}</h3>
+
+
+{% if session.is_over %}
+<div class="ui-body ui-body-e">
+    <h4 id="alert_finished">Session ended!</h4>
+</div>
+{% endif %}
+
+{% if session.in_progress %}
+<div class="ui-body ui-body-b">
+    <h4 id="alert_in_progress">Session in progress!</h4>
+</div>
+{% endif %}
+
+
+{{ session.description|safe }}
+
+
+{% if session.attendees %}
+    <div data-role="collapsible" data-collapsed="true">
+        <h3>Attendees</h3>
+        <ul data-role="listview" data-inset="true">
+            {% for attendee in session.attendees %}
+                <li>
+                    <a href="{{ attendee.profile.get_absolute_url }}">
+                        {{ attendee.first_name }} {{ attendee.last_name }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+{% endblock %}
+
+{% block footer %}
+<div data-role="footer" class="nav-glyphish">
+    <div data-role="navbar">
+        <ul>
+            <li><a href="{{ session.speaker.profile.get_absolute_url }}" data-transition="flip" class="speaker" data-icon="custom">Speaker</a></li>
+            <li><a href="/fav/add/{{ session.pk }}" data-transition="slideup" class="fav" data-icon="custom">Fav</a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
