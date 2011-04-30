@@ -22,7 +22,7 @@ class UserProfile(models.Model):
     
     
     def get_absolute_url(self):
-        return "/user/%d" % self.user.pk
+        return "/profile/%d" % self.user.pk
     
     def get_gravatar(self, size=80, default='wavatar'):
         """ Get's a Gravatar for a email address.

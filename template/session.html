@@ -36,7 +36,7 @@
         <ul data-role="listview" data-inset="true">
             {% for attendee in attendees %}
                 <li>
-                    <a href="{{ attendee.profile.get_absolute_url }}">
+                    <a href="{{ attendee.profile.get_absolute_url }}" data-transition="slideup">
                         {{ attendee.first_name }} {{ attendee.last_name }}
                     </a>
                 </li>

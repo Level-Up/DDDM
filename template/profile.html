@@ -3,7 +3,7 @@
 
 {% block header %}
     <div data-role="header">
-        <h1>Aaron Bassett</h1>
+        <h1>{{ person.first_name }} {{ person.last_name }}</h1>
     </div><!-- END: header -->
 {% endblock %}
 
@@ -11,69 +11,97 @@
 
 <ul data-role="listview" data-inset="true">
     <li>
-        <a href="http://www.aaronbassett.com">
-        <img src="{{ user.profile.get_gravatar }}" alt="" />
-        <h3>Aaron Bassett</h3>
-        <p>Level Up</p>
+        <a href="{{ person.profile.website }}">
+        <img src="{{ person.profile.get_gravatar }}" alt="" />
+        <h3>{{ person.first_name }} {{ person.last_name }}</h3>
+        {% if person.profile.company %}
+            <p>{{ person.profile.company }}</p>
+        {% endif %}
         </a>
     </li>
 </ul>
 
+{% if person.profile.bio %}
 <div class="ui-body ui-body-b">
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Quisque lacus libero, vestibulum sit amet tincidunt eu, lacinia in leo.</p>
+    <p>{{ person.profile.bio }}</p>
 </div>
+{% endif %}
 
 <ul data-role="listview" data-inset="true">
+    {% if person.profile.twitter %}
     <li>
-        <a href="http://twitter.com/">
+        <a href="http://twitter.com/{{ person.profile.twitter }}">
             <img src="{{ MEDIA_URL }}images/social/picons33.png" alt="" />
             <h3>Twitter</h3>
-            <p>twitter.com/aaronbassett</p>
+            <p>twitter.com/{{ person.profile.twitter }}</p>
         </a>
     </li>
+    {% endif %}
+    
+    {% if person.profile.facebook %}
     <li>
-        <a href="http://twitter.com/">
+        <a href="{{ person.profile.facebook }}">
             <img src="{{ MEDIA_URL }}images/social/picons36.png" alt="" />
             <h3>Facebook</h3>
-            <p>twitter.com/aaronbassett</p>
+            <p>{{ person.profile.facebook }}</p>
         </a>
     </li>
+    {% endif %}
+    
+    {% if person.profile.github %}
     <li>
-        <a href="http://twitter.com/">
+        <a href="http://github.com/{{ person.profile.github }}">
             <img src="{{ MEDIA_URL }}images/social/github.png" alt="" />
             <h3>Github</h3>
-            <p>twitter.com/aaronbassett</p>
+            <p>github.com/{{ person.profile.github }}</p>
         </a>
     </li>
+    {% endif %}
+    
+    {% if person.profile.forrst %}
     <li>
-        <a href="http://twitter.com/">
+        <a href="http://forrst.com/people/{{ person.profile.forrst }}">
             <img src="{{ MEDIA_URL }}images/social/picons31.png" alt="" />
             <h3>Forrst</h3>
-            <p>twitter.com/aaronbassett</p>
+            <p>forrst.com/people/{{ person.profile.forrst }}</p>
         </a>
     </li>
+    {% endif %}
+    
+    {% if person.profile.linkedin %}
     <li>
-        <a href="http://twitter.com/">
+        <a href="{{ person.profile.linkedin }}">
             <img src="{{ MEDIA_URL }}images/social/picons41.png" alt="" />
             <h3>Linkedin</h3>
-            <p>twitter.com/aaronbassett</p>
+            <p>{{ person.profile.linkedin }}</p>
         </a>
     </li>
+    {% endif %}
+    
+    {% if person.profile.delicious %}
     <li>
-        <a href="http://twitter.com/">
+        <a href="http://delicious.com/{{ person.profile.delicious }}">
             <img src="{{ MEDIA_URL }}images/social/picons49.png" alt="" />
             <h3>Delicious</h3>
-            <p>twitter.com/aaronbassett</p>
+            <p>delicious.com/{{ person.profile.delicious }}</p>
         </a>
     </li>
+    {% endif %}
+    
+    
 </ul>
 
 <ul data-role="listview" data-inset="true">
     <li data-role="list-divider">Favourite sessions.</li>
+    {% if attending %}
+        {% for session in attending %}
+            <li><a href="{{ session.get_absolute_url }}">{{ session.title }}</a></li>
+        {% endfor %}
+    {% else %}
     <li>
         This user has not favourited any sessions yet :(
     </li>
+    {% endif %}
 </ul>
 
 
