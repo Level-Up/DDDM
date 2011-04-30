@@ -13,8 +13,7 @@ urlpatterns = patterns('',
     
     (r'^agenda/', include("session.urls")),
     (r'^register/?$', direct_to_template, {'template': 'register.html'}),
-    (r'^fav/add/(?P<session_id>\d+)/?$', 'dddm.fav.views.add'),
-    (r'^fav/del/(?P<session_id>\d+)/?$', 'dddm.fav.views.remove'),
+    (r'^fav/', include("fav.urls")),
     
     url(r'^', include('cms.urls')),
 )
