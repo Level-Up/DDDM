@@ -30,11 +30,11 @@
 {{ session.description|safe }}
 
 
-{% if session.attendees %}
+{% if attendees %}
     <div data-role="collapsible" data-collapsed="true">
         <h3>Attendees</h3>
         <ul data-role="listview" data-inset="true">
-            {% for attendee in session.attendees %}
+            {% for attendee in attendees %}
                 <li>
                     <a href="{{ attendee.profile.get_absolute_url }}">
                         {{ attendee.first_name }} {{ attendee.last_name }}
