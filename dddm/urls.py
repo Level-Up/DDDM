@@ -7,7 +7,9 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin_tools/', include('admin_tools.urls')),
+    (r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    
     
     (r'^agenda/', include("session.urls")),
     (r'^register/?$', direct_to_template, {'template': 'register.html'}),
