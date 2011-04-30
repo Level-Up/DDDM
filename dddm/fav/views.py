@@ -2,12 +2,14 @@ from django.shortcuts import render_to_response
 from django.http import Http404
 from django.template import RequestContext
 from django.shortcuts import get_list_or_404, get_object_or_404
+from lazysignup.decorators import allow_lazy_user
 
 # Custom models
 from dddm.fav.models import Fav
 from dddm.session.models import Session
 
 
+@allow_lazy_user
 def add(request, session_id):
     """
     Favourite a session
@@ -35,6 +37,7 @@ def add(request, session_id):
                               "clash": clash},
                              context_instance=RequestContext(request))
 
+@allow_lazy_user
 def remove(request, session_id):
     """
     Remove a favourite :(

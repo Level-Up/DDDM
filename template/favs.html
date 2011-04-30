@@ -10,8 +10,8 @@
 
 {% block content %}
 
-<nav id="fav_lists">
-    <ul data-role="listview" data-filter="true">
+<nav>
+    <ul data-role="listview" data-filter="true" id="fav_list">
         {% get_favs for user as favs %}
         {% for slot in favs %}
             <li data-role="list-divider">{{ slot.start }} - {{ slot.end }}</li>
@@ -37,9 +37,7 @@
 
 <script>
 $("div").live('pageshow',function(event, ui){
-    if($("#fav_lists").length > 0) {
-        ui.prevPage.remove();
-    }
+    $('#fav_list').listview('refresh');
 });
 </script>
 
