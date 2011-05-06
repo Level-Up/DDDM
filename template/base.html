@@ -21,13 +21,22 @@
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/handheld.css" />
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.5.2.min.js"></script>
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.mobile-1.0a4.1.min.js"></script>
+    
+    <script>
+    $(document).live("mobileinit", function(){
+        $.mobile.ajaxLinksEnabled(false);
+        $.mobile.ajaxFormsEnabled(false);
+    });
+    
+    $('.ui-page').live('pagehide',function(){ $(this).remove(); });
+    </script>
 
 </head>
 <body>
     
     <div data-role="page">
         {% block header %}
-            <div data-role="header">
+            <div data-role="header" data-backbtn="false">
                 <h1>{% page_attribute page_title %}</h1>
             </div><!-- END: header -->
         {% endblock %}
