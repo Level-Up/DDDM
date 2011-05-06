@@ -22,7 +22,11 @@
                     <h3>{{ session.title }}</h3>
                 {% else %}
                     <a href="{{ session.url }}">
-                        <h3>{{ session.speaker }}</h3>
+                        {% if session.speaker %}
+                            <h3>{{ session.speaker }}</h3>
+                        {% else %}
+                            <h3>- -</h3>
+                        {% endif %}
                         <p><b>{{ session.title }}</b></p>
                         <p>{{ session.excerpt }}</p>
                         <p class="ui-li-count">{{ session.room|upper }}</p>
