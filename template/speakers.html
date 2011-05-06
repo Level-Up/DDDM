@@ -19,7 +19,7 @@
                 {% if session.speaker %}
                     {% if not session.is_break %}
                         <li>
-                            <h3><a href="{% url dddm.account.views.person session.speaker_id %}">{{ session.speaker }}</a></h3>
+                            <a href="{% url dddm.account.views.person session.speaker_id %}">{{ session.speaker }}</a>
                         </li>
                     {% endif %}
                 {% endif %}
