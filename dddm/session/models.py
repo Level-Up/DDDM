@@ -34,7 +34,7 @@ class Session(models.Model):
                                             generated from the description.""")
     description = models.TextField(blank=True)
     room = models.CharField(max_length=1,
-                            choices=[(string.letters[x],string.letters[x]) for x in range(0,5)],
+                            choices=[(string.letters[x],string.letters[x]) for x in range(0,6)],
                             blank=True)
     is_break = models.BooleanField(default=False)
 
