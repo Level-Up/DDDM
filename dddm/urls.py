@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     (r'^login/$', 'django.contrib.auth.views.login'),
     
     
+    
     (r'^agenda/', include("session.urls")),
     (r'^profile/', include("account.urls")),
     (r'^register/?$', direct_to_template, {'template': 'register.html'}),
