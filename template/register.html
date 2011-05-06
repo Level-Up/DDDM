@@ -13,7 +13,7 @@
     <a href="/">Developer Day Scotland</a>
 </h1>
 
-<form action="/profile/new/" method="post">
+<form action="/profile/new/" method="post">{% csrf_token %}
     <div class="ui-body ui-body-b">
         <div data-role="fieldcontain">
             <p><input type="text" name="first_name" placeholder="first name" required value=""  /></p>
