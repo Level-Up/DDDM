@@ -22,8 +22,8 @@
                     <h3>{{ session.title }}</h3>
                 {% else %}
                     <a href="{{ session.url }}">
-                        <h3>{{ session.speaker }}</h3>
-                        <p><b>{{ session.title }}</b></p>
+                        <h3 style="white-space:normal;">{{ session.title }}</h3>
+                        <p><b>{{ session.speaker }}</b></p>
                         <p>{{ session.excerpt }}</p>
                         <p class="ui-li-count">{{ session.room|upper }}</p>
                     </a>
