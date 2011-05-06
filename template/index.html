@@ -25,7 +25,7 @@
                     <dt><img src="{{ s.user.profile_image_url }}" alt="{{ s.user.screen_name }}" /></dt>
                     <dd>
                         <p><i><a href="http://twitter.com/{{ s.user.screen_name }}" class="from">@{{ s.user.screen_name }}</a></i></p>
-                        <p>{{ s.text }}</p>
+                        <p>{{ s.text|safe }}</p>
                     </dd>
                 </dl>
             </div>
@@ -33,15 +33,6 @@
         </div>
     </div>
 </div>
-
-<script>
-// execute your scripts when the DOM is ready. this is mostly a good habit
-$(function() {
-    // initialize scrollable
-    $(".scrollable").scrollable({"circular": true});
-
-});
-</script>
 
 {% if not user.is_authenticated or user|is_lazy_user %}
 <form action="/login/" method="post">{% csrf_token %}

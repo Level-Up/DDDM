@@ -22,12 +22,29 @@
     <link rel="stylesheet" href="{{ MEDIA_URL }}css/handheld.css" />
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery-1.5.2.min.js"></script>
     <script type="text/javascript" src="{{ MEDIA_URL }}js/jquery.mobile-1.0a4.1.min.js"></script>
-    <script src="http://cdn.jquerytools.org/1.2.5/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="http://cloud.github.com/downloads/malsup/cycle/jquery.cycle.all.2.74.js"></script>
     
     <script>
     $(document).live("mobileinit", function(){
         $.mobile.ajaxLinksEnabled(false);
         $.mobile.ajaxFormsEnabled(false);
+    });
+    
+    // execute your scripts when the DOM is ready. this is mostly a good habit
+    $('.ui-page').live("pageshow", function(){
+        $('#latest_tweets .items').cycle({
+            fx: 'scrollHorz',
+            speed: 500,
+            timeout: 6000
+    	});
+    	
+        $("#latest_tweets").bind("swipeleft", function() {
+            $('#latest_tweets .items').cycle("next");
+        });
+        
+        $("#latest_tweets").bind("swiperight", function() {
+            $('#latest_tweets .items').cycle("prev");
+        });
     });
     
     $('.ui-page').live('pagehide',function(){ $(this).remove(); });
