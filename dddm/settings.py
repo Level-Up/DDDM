@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.messages',
+    'django.contrib.markup',
     'django.contrib.admin',
     'django.contrib.admindocs',
     'django_extensions',
