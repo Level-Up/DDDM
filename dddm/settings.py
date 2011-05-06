@@ -108,6 +108,8 @@ CMS_TEMPLATES = (
     ('agenda.html', 'Agenda'),
     ('favs.html', 'Favourites'),
     ('register.html', 'Register'),
+    ('sponsors.html', 'Sponsors'),
+    ('content.html', 'Content based page'),
 )
 
 ROOT_URLCONF = 'dddm.urls'
