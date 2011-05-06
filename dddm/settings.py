@@ -102,6 +102,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.csrf',
     'cms.context_processors.media',
+    'dddm.context_processors.latest_tweets',
 )
 
 CMS_TEMPLATES = (

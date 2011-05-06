@@ -55,3 +55,55 @@
 #sponsors img {
     border: none;
 }
+
+.scrollable {
+	/* required settings */
+	position:relative;
+	overflow:hidden;
+	width: 270px;
+	height:80px;
+}
+.scrollable .items {
+	/* this cannot be too large */
+	width:20000em;
+	position:absolute;
+	clear:both;
+}
+.items div {
+	float:left;
+	width:270px;
+}
+
+#latest_tweets {
+    background: #eee;
+    width: 270px;
+    padding: 10px;
+    -moz-box-shadow:inset 0 0 4px #888;
+    -webkit-box-shadow:inset 0 0 4px #888;
+    box-shadow:inset 0 0 4px #888;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    margin: 20px 0;
+}
+#latest_tweets dl {
+    margin: 0;
+}
+#latest_tweets dt {
+    float: left;
+    margin: 0;
+}
+
+#latest_tweets dt img {
+    width: 48px;
+    height: 48px;
+}
+
+#latest_tweets dd {
+    font-size: 12px;
+    margin: 0 0 0 60px;
+}
+
+#latest_tweets p {
+    margin: 2px 0;
+}
