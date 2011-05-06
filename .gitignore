@@ -1,6 +1,5 @@
 *.pyc
 django.wsgi
 media/uploads/*
-media/css/handheld.css
 wsgi-watch.py
 localsettings.py
