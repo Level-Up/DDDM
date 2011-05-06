@@ -70,6 +70,8 @@ ADMIN_MEDIA_PREFIX = localsettings.ADMIN_MEDIA_PREFIX
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = localsettings.SECRET_KEY
 
+LOGIN_REDIRECT_URL = "/agenda/"
+
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
