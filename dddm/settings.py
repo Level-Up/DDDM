@@ -108,6 +108,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 CMS_TEMPLATES = (
     ('index.html', 'Homepage'),
     ('agenda.html', 'Agenda'),
+    ('speakers.html', 'Speaker list'),
     ('favs.html', 'Favourites'),
     ('register.html', 'Register'),
     ('sponsors.html', 'Sponsors'),

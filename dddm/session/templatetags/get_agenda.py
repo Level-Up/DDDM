@@ -30,7 +30,9 @@ class get_agenda(Tag):
             if qs:
                 for s in qs:
                     speaker = "%s %s" % (s.speaker.first_name, s.speaker.last_name) if s.speaker else None
+                    speaker_id = s.speaker.pk if s.speaker else None
                     sessions.append({"speaker": speaker,
+                                     "speaker_id": speaker_id,
                                      "title": s.title,
                                      "url": s.get_absolute_url(),
                                      "excerpt": s.excerpt,

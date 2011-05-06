@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load cms_tags cache menu_tags get_agenda %}
+
+{% block header %}
+    <div data-role="header" data-backbtn="false">
+        <h1>{% page_attribute page_title %}</h1>
+        <a href="/" data-icon="home" data-iconpos="notext" data-direction="reverse" class="ui-btn-right jqm-home">Home</a>
+    </div><!-- END: header -->
+{% endblock %}
+
+{% block content %}
+
+<nav>
+    <ul data-role="listview" data-filter="true">
+        {% get_agenda as agenda %}
+        {% for slot in agenda %}
+            
+            {% for session in slot.sessions %}
+                {% if session.speaker %}
+                    {% if not session.is_break %}
+                        <li>
+                            <h3><a href="{% url dddm.account.views.person session.speaker_id %}">{{ session.speaker }}</a></h3>
+                        </li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</nav>
+
+{% endblock %}
